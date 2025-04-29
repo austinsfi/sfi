@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Supply Organizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="flex justify-end mb-4">
+        <button id="dark-mode-toggle" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+            Dark Mode
+        </button>
+    </div>
+
+    <h1 class="text-2xl font-semibold text-blue-600 mb-8 text-center">IT Office Supply Organizer</h1>
+
+    <div class="tab-container flex justify-center mb-8">
+        <button id="add-item-tab" class="tab active-tab bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-l-md focus:outline-none focus:shadow-outline">Add Item</button>
+        <button id="view-supplies-tab" class="tab bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r-md focus:outline-none focus:shadow-outline">View Supplies</button>
+    </div>
+
+    <div id="add-item-panel" class="tab-panel bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Add New Item</h2>
+        <form id="add-item-form" class="space-y-4">
+            <div class="flex items-center space-x-4">
+                <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location:</label>
+                <select id="location" required class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="" disabled selected>Select Location</option>
+                    <option value="server-room">Server Room</option>
+                    <option value="office-1">Office 1</option>
+                    <option value="office-2">Office 2</option>
+                    <option value="storage">Storage</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-4">
+                <label for="item-name" class="block text-gray-700 text-sm font-bold mb-2">Item Name:</label>
+                <input type="text" id="item-name" placeholder="Enter item name" required class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex items-center space-x-4">
+                <label for="quantity" class="block text-gray-700 text-sm font-bold mb-2">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1" required class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Add Item</button>
+        </form>
+    </div>
+
+    <div id="view-supplies-panel" class="tab-panel bg-white rounded-lg shadow-md p-6 hidden">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Available Supplies</h2>
+        <div class="flex space-x-4 mb-4">
+            <div class="flex items-center space-x-2">
+                <label for="location-filter" class="block text-gray-700 text-sm font-bold">Filter by Location:</label>
+                <select id="location-filter" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">All Locations</option>
+                    <option value="server-room">Server Room</option>
+                    <option value="office-1">Office 1</option>
+                    <option value="office-2">Office 2</option>
+                    <option value="storage">Storage</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-2">
+                <label for="category-filter" class="block text-gray-700 text-sm font-bold">Filter by Category:</label>
+                <select id="category-filter" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            <button id="clear-filter-button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Clear Filter
+            </button>
+        </div>
+        <div id="supply-list-container" class="mt-4">
+            <p class="text-gray-500">No supplies added yet.</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Manage Locations</h3>
+        <div id="location-list" class="mb-4">
+            <span class="inline-block bg-indigo-200 text-indigo-700 px-2 py-1 rounded-full text-sm font-semibold mr-2">server-room</span>
+            <span class="inline-block bg-indigo-200 text-indigo-700 px-2 py-1 rounded-full text-sm font-semibold mr-2">office-1</span>
+            <span class="inline-block bg-indigo-200 text-indigo-700 px-2 py-1 rounded-full text-sm font-semibold mr-2">office-2</span>
+            <span class="inline-block bg-indigo-200 text-indigo-700 px-2 py-1 rounded-full text-sm font-semibold mr-2">storage</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <input type="text" id="new-location-input" placeholder="Add New Location" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <button id="add-location-button" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Add Location</button>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

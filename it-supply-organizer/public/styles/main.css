@@ -1,0 +1,128 @@
+/* main.css - Styles for the IT Supply Organizer application */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* Light mode background */
+    color: #1f2937; /* Light mode text color */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tab {
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+}
+
+.active-tab {
+    background-color: #3b82f6; /* Active tab color */
+    color: white;
+}
+
+.tab-panel {
+    background-color: white;
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    background-color: #1f2937; /* Dark mode background */
+    color: #f9fafb; /* Dark mode text color */
+}
+
+.dark-mode .tab-panel {
+    background-color: #374151; /* Darker panel background */
+}
+
+.dark-mode .tab {
+    border-color: #4b5563; /* Dark mode tab border */
+}
+
+.dark-mode .active-tab {
+    background-color: #3b82f6; /* Active tab color in dark mode */
+}
+
+.dark-mode button {
+    background-color: #4b5563; /* Dark mode button background */
+    color: #f9fafb; /* Dark mode button text color */
+}
+
+.dark-mode button:hover {
+    background-color: #6b7280; /* Dark mode button hover */
+}
+
+input, select {
+    border: 1px solid #d1d5db; /* Light mode input border */
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+}
+
+.dark-mode input, .dark-mode select {
+    border-color: #4b5563; /* Dark mode input border */
+    background-color: #374151; /* Dark mode input background */
+    color: #f9fafb; /* Dark mode input text color */
+}
+
+.bg-gray-100 {
+    background-color: #f9fafb; /* Light gray background */
+}
+
+.bg-gray-200 {
+    background-color: #e5e7eb; /* Light gray background */
+}
+
+.bg-gray-300 {
+    background-color: #d1d5db; /* Light gray background */
+}
+
+.bg-gray-400 {
+    background-color: #9ca3af; /* Light gray background */
+}
+
+.text-gray-700 {
+    color: #374151; /* Dark gray text */
+}
+
+.text-gray-800 {
+    color: #1f2937; /* Dark gray text */
+}
+
+.text-gray-500 {
+    color: #6b7280; /* Medium gray text */
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-x-4 > :not(:last-child) {
+    margin-right: 1rem;
+}
+
+.hidden {
+    display: none;
+}
